@@ -149,7 +149,7 @@ var EuraQr = function() {
     return "https://chart.googleapis.com/chart" +
            "?cht=qr" +
            "&choe=UTF-8" +
-           "&chld=" + ecl +  // medium level error correction
+           "&chld=" + ecl +
            "&chs=" + w + "x" + h +
            "&chl=" + encodeURIComponent(text);
   }
@@ -186,7 +186,7 @@ var EuraQr = function() {
       vd.invoice_date,
       // 11. Broj računa
       vd.invoice_number,
-      // 12. Datum dospijeća računa
+      // 12. Datum dospijeća računa (neobavezno, Format: DDMMYYYY)
       vd.delivery_date,
       // 13. Ukupan iznos računa (Format: #0.00)
       vd.total_amount,

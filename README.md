@@ -17,12 +17,12 @@ The library also works out of the box for:
 ```javascript
 var euraQr = new EuraQr();
 var qrData = {
-  "merchant_name": "Prodavac j.d.o.o.",
+  "merchant_name": "Prodavač j.d.o.o.",
   "merchant_oib": "123123123",
   "merchant_iban": "HR5XXXXXXXXXXXXXXXXXXX",
   "reference_number": "1-4-10",
   "vat_mode": euraQr.VAT_MODE.NON_TAX_PAYER, // Nije obveznik PDV-a.
-  "buyer_name": "Kupac .d.o.o.",
+  "buyer_name": "Kupac d.o.o.",
   "buyer_oib": "2424242423",
   "invoice_date": new Date(),
   "invoice_number": "4/1/1",
@@ -34,13 +34,18 @@ var qrData = {
   "vat_amount_5": 0,
   "vat_amount_13": 0,
   "vat_amount_25": 0,
-  "vat_na": 0,
-  "vat_freed": 800.0 // Neoporezivo.
+  "vat_not_applicable": 0,
+  "vat_exempt": 800.0 // Neoporezivo.
 }
 
 var w = 400, h = 400;
 var qrCodeImageUrl = euraQr.generateQrCodeImageUrl(qrData, w, h);
+console.log("QR image:");
 console.log(qrCodeImageUrl);
+
+console.log("Decoded QR image:");
+console.log("https://zxing.org/w/decode?u=" +
+           encodeURIComponent(qrCodeImageUrl));
 if (window) window.open(qrCodeImageUrl);
 ```
 
@@ -49,12 +54,12 @@ Scanned QR Example:
 ```
 www.e-URA.hr
 01
-Prodavac j.d.o.o.
+Prodavač j.d.o.o.
 123123123
 HR5XXXXXXXXXXXXXXXXXXX
 1-4-10
 3
-Kupac .d.o.o.
+Kupac d.o.o.
 2424242423
 26012017
 4/1/1
@@ -80,7 +85,7 @@ knjigovođa mora ručno unositi u program prilikom knjiženja ulaznog računa.
 Da bi posao knjigovođi bio brži i točniji, svi bitni podaci mogu biti odštampani
 na računu upotrebom QR koda:
 
-![Primjer QR koda](https://chart.googleapis.com/chart?cht=qr&chld=M&choe=UTF-8&chs=400x400&chl=www.e-URA.hr%0A01%0AProdavac%20d.o.o.%0A111222333444%0AHR2360009988998877%0A33-111111%0A3%0AKupac%20j.d.o.o.%0A99988899988%0A26012017%0A4/1/1%0A26012017%0A800.00%0A0.00%0A0.00%0A0.00%0A0.00%0A0.00%0A0.00%0A0.00%0A800.00%0A0.00%0A)
+![Primjer QR koda](https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chld=M&chs=400x400&chl=www.e-URA.hr%0A01%0AProdavac%20j.d.o.o.%0A123123123%0AHR5XXXXXXXXXXXXXXXXXXX%0A1-4-10%0A3%0AKupac%20d.o.o.%0A2424242423%0A27012017%0A4%2F1%2F1%0A27012017%0A800.00%0A0.00%0A0.00%0A0.00%0A0.00%0A0.00%0A0.00%0A0.00%0A800.00%0A0.00%0A)
 
 eURA kod sadrži sljedeće podatke:
 

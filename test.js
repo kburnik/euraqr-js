@@ -1,12 +1,12 @@
 function test() {
   var euraQr = new EuraQr();
   var qrData = {
-    "merchant_name": "Prodavac j.d.o.o.",
+    "merchant_name": "Prodavač j.d.o.o.",
     "merchant_oib": "123123123",
     "merchant_iban": "HR5XXXXXXXXXXXXXXXXXXX",
     "reference_number": "1-4-10",
     "vat_mode": euraQr.VAT_MODE.NON_TAX_PAYER, // Nije obveznik PDV-a.
-    "buyer_name": "Kupac .d.o.o.",
+    "buyer_name": "Kupac d.o.o.",
     "buyer_oib": "2424242423",
     "invoice_date": new Date(),
     "invoice_number": "4/1/1",
