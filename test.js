@@ -5,7 +5,7 @@ function test() {
     "merchant_oib": "123123123",
     "merchant_iban": "HR5XXXXXXXXXXXXXXXXXXX",
     "reference_number": "1-4-10",
-    "vat_mode": "3", // Nije obveznik PDV-a.
+    "vat_mode": euraQr.VAT_MODE.NON_TAX_PAYER, // Nije obveznik PDV-a.
     "buyer_name": "Kupac .d.o.o.",
     "buyer_oib": "2424242423",
     "invoice_date": new Date(),
@@ -31,37 +31,12 @@ function test() {
   } catch(e) {
     logger = console;
   }
+
+  logger.log("QR image:");
   logger.log(qrCodeImageUrl);
 
-  if (document) {
-    window.open(qrCodeImageUrl);
-  }
+  logger.log("Decoded QR image:");
+  logger.log("https://zxing.org/w/decode?u=" +
+                encodeURIComponent(qrCodeImageUrl));
 }
-
-/*
-Scanned QR Example:
------------------------------------------
-www.e-URA.hr
-01
-Prodavac j.d.o.o.
-123123123
-HR5XXXXXXXXXXXXXXXXXXX
-1-4-10
-3
-Kupac d.o.o.
-2424242423
-10022016
-4/1/1
-10022016
-800.00
-0.00
-0.00
-0.00
-0.00
-0.00
-0.00
-0.00
-800.00
-0.00
-*/
 

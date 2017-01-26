@@ -21,7 +21,7 @@ var qrData = {
   "merchant_oib": "123123123",
   "merchant_iban": "HR5XXXXXXXXXXXXXXXXXXX",
   "reference_number": "1-4-10",
-  "vat_mode": "3", // Nije obveznik PDV-a.
+  "vat_mode": euraQr.VAT_MODE.NON_TAX_PAYER, // Nije obveznik PDV-a.
   "buyer_name": "Kupac .d.o.o.",
   "buyer_oib": "2424242423",
   "invoice_date": new Date(),
@@ -42,6 +42,33 @@ var w = 400, h = 400;
 var qrCodeImageUrl = euraQr.generateQrCodeImageUrl(qrData, w, h);
 console.log(qrCodeImageUrl);
 if (window) window.open(qrCodeImageUrl);
+```
+
+
+Scanned QR Example:
+```
+www.e-URA.hr
+01
+Prodavac j.d.o.o.
+123123123
+HR5XXXXXXXXXXXXXXXXXXX
+1-4-10
+3
+Kupac .d.o.o.
+2424242423
+26012017
+4/1/1
+26012017
+800.00
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+800.00
+0.00
 ```
 
 Preuzeto sa [http://www.e-ura.hr/](http://www.e-ura.hr/):
