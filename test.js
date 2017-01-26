@@ -37,6 +37,6 @@ function test() {
 
   logger.log("Decoded QR image:");
   logger.log("https://zxing.org/w/decode?u=" +
-                encodeURIComponent(qrCodeImageUrl));
+              encodeURIComponent(qrCodeImageUrl));
 }
 

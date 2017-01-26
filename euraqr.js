@@ -22,7 +22,7 @@ var EuraQr = function() {
 
   /**
    * The validation dictionary. This is a representation of the e-URA QR
-   * from the specification.
+   * specification found at: http://e-ura.hr/Struktura%20podataka%20e-ura.pdf
    */
   var fields = {
     "merchant_name": {required: false, type: 'string', def: ""},
@@ -205,7 +205,7 @@ var EuraQr = function() {
       vd.vat_na,
       // 21 Oslobođeno PDV-a (Format: #0.00)
       vd.vat_freed,
-      // 22. Undocumented value (seems to appear in production use).
+      // 22. Undocumented value (seems to appear in production use though).
       "0.00",
       // Last LF.
       ""
@@ -229,7 +229,7 @@ var EuraQr = function() {
 
   /**
    * Creates a e-URA data default object. This is useful when you only need to
-   * to set a subset of keys or for testing.
+   * set a subset of keys or for testing.
    * @return {object} E-ura unserialized data with default values.
    */
   this.createDefaultDataObject = function() {
