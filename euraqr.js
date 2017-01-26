@@ -45,8 +45,9 @@ var EuraQr = function() {
     "vat_amount_5": {required: true, type: 'number', format: 2, def: 0.00},
     "vat_amount_13": {required: true, type: 'number', format: 2, def: 0.00},
     "vat_amount_25": {required: true, type: 'number', format: 2, def: 0.00},
-    "vat_na": {required: true, type: 'number', format: 2, def: 0.00},
-    "vat_freed": {required: true, type: 'number', format: 2, def: 0.00},
+    "vat_not_applicable": {required: true, type: 'number', format: 2,
+                           def: 0.00},
+    "vat_exempt": {required: true, type: 'number', format: 2, def: 0.00},
   };
 
   /**
@@ -202,10 +203,10 @@ var EuraQr = function() {
       // 19. Iznos PDV-a po stopi 25% (Format: #0.00)
       vd.vat_amount_25,
       // 20. Ne podliježe PDV-u (Format: #0.00)
-      vd.vat_na,
-      // 21 Oslobođeno PDV-a (Format: #0.00)
-      vd.vat_freed,
-      // 22. Undocumented value (seems to appear in production use though).
+      vd.vat_not_applicable,
+      // 21. Oslobođeno PDV-a (Format: #0.00)
+      vd.vat_exempt,
+      // Undocumented value (seems to appear in production use though).
       "0.00",
       // Last LF.
       ""

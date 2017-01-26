@@ -18,8 +18,8 @@ function test() {
     "vat_amount_5": 0,
     "vat_amount_13": 0,
     "vat_amount_25": 0,
-    "vat_na": 0,
-    "vat_freed": 800.0 // Neoporezivo.
+    "vat_not_applicable": 0, // Ne podliježe PDV-u.
+    "vat_exempt": 800.0 // Oslobođeno PDV-a.
   }
 
   var w = 400, h = 400;
